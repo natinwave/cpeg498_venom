@@ -1,6 +1,0 @@
-*.o
-*.so
-*.pyc
-build/
-PyBluez.egg-info/
-dist/
