@@ -6,6 +6,5 @@ spider_raspberry_pi: this is the python code for a WiFi-connected Raspberry Pi t
 spider_arduino: this is the JavaScript code that continually listens for new commands from the serial input line from the Raspberry Pi and then translates those commands into servo signals that move the robot spider's legs.
 
 Summary:
-spider_server -> spider_raspberry_pi -> spider_arduino
-            (WiFi)              (Serial USB)
-
+spider_server -> spider_raspberry_pi -> spider_arduin -> leg servos
+            (WiFi)              (Serial USB)  (PWM signals over wires)
