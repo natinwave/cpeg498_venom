@@ -1,0 +1,1 @@
+To get pybluez working, cd into the pybluez_master directory and run "sudo python setup.py install"
