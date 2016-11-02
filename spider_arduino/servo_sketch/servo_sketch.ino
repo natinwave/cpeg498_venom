@@ -65,6 +65,9 @@ void move_front_left_leg_and_back_right_leg() {
 
 void loop() {
 
+  //TODO: Read Serial USB input, which will be commands
+  //      coming from the Raspberry Pi.
+
   if (move_legs) {
     move_front_left_leg_and_back_right_leg();
   }
