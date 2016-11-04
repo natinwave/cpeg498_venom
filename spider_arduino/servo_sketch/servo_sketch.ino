@@ -18,88 +18,144 @@ void setup() {
   Serial.println("setup done");
 }
 
-void actuate_servo_left_to_right(Servo servo, bool shoulder) {
+void actuate_servo_left_to_right(Servo servoPin, String servoName) {
   Serial.println("actuate_servo_left_to_right");
   int MAX = 0;
   int MIN = 0;
-  if (shoulder) {
-    MAX = 360;
+  if (servoName == "FRS") {
+    MAX = 60;
+    MIN = 0;
+  }
+  else if (servoName == "BRS") {
+    MAX = 60;
+    MIN = 0;
+  }
+  else if (servoName == "FLS") {
+    MAX = 60;
+    MIN = 0;
+  }
+  else if (servoName == "BLS") {
+    MAX = 60;
+    MIN = 0;
+  }
+  else if (servoName == "FRK") {
+    MAX = 40;
+    MIN = 0;
+  }
+  else if (servoName == "FLK") {
+    MAX = 140;
     MIN = 100;
   }
-  else {
-    MAX = 100;
+  else if (servoName == "BRK") {
+    MAX = 140;
+    MIN = 100;
+  }
+  else if (servoName == "BLK") {
+    MAX = 40;
+    MIN = 0;
   }
   for (pos = MIN; pos <= MAX; pos += 1) {
-    servo.write(pos);
+    servoPin.write(pos);
     delay(3); //wait for servo to reach pos
   }
 }
 
-void actuate_servo_right_to_left(Servo servo, bool shoulder) {
+void actuate_servo_right_to_left(Servo servoPin, String servoName) {
   Serial.println("actuate_servo_right_to_left");
   int MAX = 0;
   int MIN = 0;
-  if (shoulder) {
-    MAX = 360;
+  if (servoName == "FRS") {
+    MAX = 60;
+    MIN = 0;
+  }
+  else if (servoName == "BRS") {
+    MAX = 60;
+    MIN = 0;
+  }
+  else if (servoName == "FLS") {
+    MAX = 60;
+    MIN = 0;
+  }
+  else if (servoName == "BLS") {
+    MAX = 60;
+    MIN = 0;
+  }
+  else if (servoName == "FRK") {
+    MAX = 40;
+    MIN = 0;
+  }
+  else if (servoName == "FLK") {
+    MAX = 140;
     MIN = 100;
   }
-  else {
-    MAX = 100;
+  else if (servoName == "BRK") {
+    MAX = 140;
+    MIN = 100;
+  }
+  else if (servoName == "BLK") {
+    MAX = 40;
+    MIN = 0;
   }
   for (pos = MAX; pos >= MIN; pos -= 1) {
-    servo.write(pos);
+    servoPin.write(pos);
     delay(3);
   }
-}
-
-void move_front_left_leg_and_back_right_leg() {
-  actuate_servo_right_to_left(servoPin6, true);
-  delay(10);
-  actuate_servo_right_to_left(servoPin11, false);
-  delay(10);
-  actuate_servo_left_to_right(servoPin6, true);
-  delay(10);
-  actuate_servo_left_to_right(servoPin11, false);
-  delay(10);
 }
 
 void loop() {
 
   //TODO: Read Serial USB input, which will be commands
   //      coming from the Raspberry Pi.
-
-  if (move_legs) {
-    move_front_left_leg_and_back_right_leg();
-  }
   
   if (Serial.available()) {
     char ch = Serial.read();
     if (ch == 'a') {
-      actuate_servo_left_to_right(servoPin6, true);
+      actuate_servo_left_to_right(servoPin6, "FRS");
     }
     else if (ch == 's') {
-      actuate_servo_right_to_left(servoPin6, true);
+      actuate_servo_right_to_left(servoPin6, "FRS");
     }
     else if (ch == 'd') {
-      actuate_servo_left_to_right(servoPin9, false);
+      actuate_servo_left_to_right(servoPin6, "FRK");
     }
     else if (ch == 'f') {
-      actuate_servo_right_to_left(servoPin9, false);
+      actuate_servo_right_to_left(servoPin6, "FRK");
     }
     else if (ch == 'g') {
-      actuate_servo_left_to_right(servoPin10, true);
+      actuate_servo_left_to_right(servoPin6, "BRS");
     }
     else if (ch == 'h') {
-      actuate_servo_right_to_left(servoPin10, true);
+      actuate_servo_right_to_left(servoPin6, "BRS");
     }
     else if (ch == 'j') {
-      actuate_servo_left_to_right(servoPin11, false);
+      actuate_servo_left_to_right(servoPin6, "BRK");
     }
     else if (ch == 'k') {
-      actuate_servo_right_to_left(servoPin11, false);
+      actuate_servo_right_to_left(servoPin6, "BRK");
+    }
+    else if (ch == 'z') {
+      actuate_servo_left_to_right(servoPin6, "BLS");
+    }
+    else if (ch == 'x') {
+      actuate_servo_right_to_left(servoPin6, "BLS");
+    }
+    else if (ch == 'c') {
+      actuate_servo_left_to_right(servoPin6, "BLK");
+    }
+    else if (ch == 'v') {
+      actuate_servo_right_to_left(servoPin6, "BLK");
+    }
+    else if (ch == 'b') {
+      actuate_servo_left_to_right(servoPin6, "FLS");
+    }
+    else if (ch == 'n') {
+      actuate_servo_right_to_left(servoPin6, "FLS");
     }
     else if (ch == 'm') {
-      move_legs = !move_legs;
+      actuate_servo_left_to_right(servoPin6, "FLK");
+    }
+    else if (ch == 'o') {
+      actuate_servo_right_to_left(servoPin6, "FLK");
     }
   }
 }
