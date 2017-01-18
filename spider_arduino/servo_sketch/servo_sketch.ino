@@ -148,60 +148,96 @@ void move_BR_forward() {
 //SECTION: move_left
 void move_left() {
   move_FL_left();
-  move_FR_left();
   move_BL_left();
+  move_FR_left();
   move_BR_left();
 }
 void move_FL_left() {
-  //TODO: Implement
+  elevate_leg("FL", "up");
+  rotate_leg("FL", "CCW");
+  elevate_leg("FL", "down");
+  rotate_leg("FL", "CW");
 }
 void move_FR_left() {
-  //TODO: Implement
+  elevate_leg("FR", "up");
+  rotate_leg("FR", "CCW");
+  elevate_leg("FR", "down");
+  rotate_leg("FR", "CW");
 }
 void move_BL_left() {
-  //TODO: Implement
+  elevate_leg("BL", "up");
+  rotate_leg("BL", "CW");
+  elevate_leg("BL", "down");
+  rotate_leg("BL", "CCW");
 }
 void move_BR_left() {
-  //TODO: Implement
+  elevate_leg("BR", "up");
+  rotate_leg("BR", "CW");
+  elevate_leg("BR", "down");
+  rotate_leg("BR", "CCW");
 }
 //SECTION: move_backward
 void move_backward() {
-  move_FL_backward();
-  move_FR_backward();
   move_BL_backward();
   move_BR_backward();
+  move_FL_backward();
+  move_FR_backward();
 }
 void move_FL_backward() {
-  //TODO: Implement
+  elevate_leg("FL", "up");
+  rotate_leg("FL", "CCW");
+  elevate_leg("FL", "down");
+  rotate_leg("FL", "CW");
 }
 void move_FR_backward() {
-  //TODO: Implement
+  elevate_leg("FR", "up");
+  rotate_leg("FR", "CW");
+  elevate_leg("FR", "down");
+  rotate_leg("FR", "CCW");
 }
 void move_BL_backward() {
-  //TODO: Implement
+  elevate_leg("BL", "up");
+  rotate_leg("BL", "CCW");
+  elevate_leg("BL", "down");
+  rotate_leg("BL", "CW");
 }
 void move_BR_backward() {
-  //TODO: Implement
+  elevate_leg("BR", "up");
+  rotate_leg("BR", "CW");
+  elevate_leg("BR", "down");
+  rotate_leg("BR", "CCW");
 }
 
 //SECTION: move_right
 void move_right() {
-  move_FL_right();
   move_FR_right();
-  move_BL_right();
   move_BR_right();
+  move_FL_right();
+  move_BL_right();
 }
 void move_FL_right() {
-  //TODO: Implement
+  elevate_leg("FL", "up");
+  rotate_leg("FL", "CW");
+  elevate_leg("FL", "down");
+  rotate_leg("FL", "CCW");
 }
 void move_FR_right() {
-  //TODO: Implement
+  elevate_leg("FR", "up");
+  rotate_leg("FR", "CW");
+  elevate_leg("FR", "down");
+  rotate_leg("FR", "CCW");
 }
 void move_BL_right() {
-  //TODO: Implement
+  elevate_leg("BL", "up");
+  rotate_leg("BL", "CCW");
+  elevate_leg("BL", "down");
+  rotate_leg("BL", "CW");
 }
 void move_BR_right() {
-  //TODO: Implement
+  elevate_leg("BR", "up");
+  rotate_leg("BR", "CCW");
+  elevate_leg("BR", "down");
+  rotate_leg("BR", "CW");
 }
 */
 
