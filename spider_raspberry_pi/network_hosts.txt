@@ -1,0 +1,77 @@
+
+Starting Nmap 7.31 ( https://nmap.org ) at 2016-12-09 12:06 EST
+Nmap scan report for wifi-roaming-128-4-197-3.host.udel.edu (128.4.197.3)
+Host is up (0.039s latency).
+Nmap scan report for wifi-roaming-128-4-197-12.host.udel.edu (128.4.197.12)
+Host is up (0.067s latency).
+Nmap scan report for wifi-roaming-128-4-197-51.host.udel.edu (128.4.197.51)
+Host is up (0.033s latency).
+Nmap scan report for wifi-roaming-128-4-197-69.host.udel.edu (128.4.197.69)
+Host is up (0.0075s latency).
+Nmap scan report for wifi-roaming-128-4-197-74.host.udel.edu (128.4.197.74)
+Host is up (0.020s latency).
+Nmap scan report for wifi-roaming-128-4-197-78.host.udel.edu (128.4.197.78)
+Host is up (0.0094s latency).
+Nmap scan report for wifi-roaming-128-4-197-84.host.udel.edu (128.4.197.84)
+Host is up (0.0094s latency).
+Nmap scan report for wifi-roaming-128-4-197-87.host.udel.edu (128.4.197.87)
+Host is up (0.11s latency).
+Nmap scan report for wifi-roaming-128-4-197-91.host.udel.edu (128.4.197.91)
+Host is up (0.14s latency).
+Nmap scan report for wifi-roaming-128-4-197-92.host.udel.edu (128.4.197.92)
+Host is up (0.052s latency).
+Nmap scan report for wifi-roaming-128-4-197-93.host.udel.edu (128.4.197.93)
+Host is up (0.019s latency).
+Nmap scan report for wifi-roaming-128-4-197-94.host.udel.edu (128.4.197.94)
+Host is up (0.13s latency).
+Nmap scan report for wifi-roaming-128-4-197-101.host.udel.edu (128.4.197.101)
+Host is up (0.056s latency).
+Nmap scan report for wifi-roaming-128-4-197-105.host.udel.edu (128.4.197.105)
+Host is up (0.10s latency).
+Nmap scan report for wifi-roaming-128-4-197-111.host.udel.edu (128.4.197.111)
+Host is up (0.10s latency).
+Nmap scan report for wifi-roaming-128-4-197-114.host.udel.edu (128.4.197.114)
+Host is up (0.058s latency).
+Nmap scan report for wifi-roaming-128-4-197-121.host.udel.edu (128.4.197.121)
+Host is up (0.11s latency).
+Nmap scan report for wifi-roaming-128-4-197-125.host.udel.edu (128.4.197.125)
+Host is up (0.14s latency).
+Nmap scan report for wifi-roaming-128-4-197-127.host.udel.edu (128.4.197.127)
+Host is up (0.18s latency).
+Nmap scan report for wifi-roaming-128-4-197-137.host.udel.edu (128.4.197.137)
+Host is up (0.11s latency).
+Nmap scan report for wifi-roaming-128-4-197-145.host.udel.edu (128.4.197.145)
+Host is up (0.094s latency).
+Nmap scan report for wifi-roaming-128-4-197-154.host.udel.edu (128.4.197.154)
+Host is up (0.094s latency).
+Nmap scan report for wifi-roaming-128-4-197-156.host.udel.edu (128.4.197.156)
+Host is up (0.015s latency).
+Nmap scan report for wifi-roaming-128-4-197-157.host.udel.edu (128.4.197.157)
+Host is up (0.060s latency).
+Nmap scan report for wifi-roaming-128-4-197-169.host.udel.edu (128.4.197.169)
+Host is up (0.069s latency).
+Nmap scan report for wifi-roaming-128-4-197-173.host.udel.edu (128.4.197.173)
+Host is up (0.11s latency).
+Nmap scan report for wifi-roaming-128-4-197-190.host.udel.edu (128.4.197.190)
+Host is up (0.019s latency).
+Nmap scan report for wifi-roaming-128-4-197-199.host.udel.edu (128.4.197.199)
+Host is up (0.021s latency).
+Nmap scan report for wifi-roaming-128-4-197-201.host.udel.edu (128.4.197.201)
+Host is up (0.0023s latency).
+Nmap scan report for wifi-roaming-128-4-197-203.host.udel.edu (128.4.197.203)
+Host is up (0.033s latency).
+Nmap scan report for wifi-roaming-128-4-197-216.host.udel.edu (128.4.197.216)
+Host is up (0.083s latency).
+Nmap scan report for wifi-roaming-128-4-197-227.host.udel.edu (128.4.197.227)
+Host is up (0.11s latency).
+Nmap scan report for wifi-roaming-128-4-197-228.host.udel.edu (128.4.197.228)
+Host is up (0.13s latency).
+Nmap scan report for wifi-roaming-128-4-197-247.host.udel.edu (128.4.197.247)
+Host is up (0.26s latency).
+Nmap scan report for wifi-roaming-128-4-197-251.host.udel.edu (128.4.197.251)
+Host is up (0.17s latency).
+Nmap scan report for wifi-roaming-128-4-197-254.host.udel.edu (128.4.197.254)
+Host is up (0.17s latency).
+Nmap scan report for wifi-roaming-128-4-197-255.host.udel.edu (128.4.197.255)
+Host is up (0.028s latency).
+Nmap done: 256 IP addresses (37 hosts up) scanned in 28.46 seconds

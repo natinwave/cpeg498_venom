@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="j-keck [jhyphenkeck@gmail.com]" />
+  <title>LSLEASES(1) lsleases Manual</title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">LSLEASES(1) lsleases Manual</h1>
+<h2 class="author">j-keck [jhyphenkeck@gmail.com]</h2>
+<h3 class="date">June, 2014</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#name">NAME</a></li>
+<li><a href="#synopsis">SYNOPSIS</a></li>
+<li><a href="#description">DESCRIPTION</a></li>
+<li><a href="#modes">MODES</a></li>
+<li><a href="#options">OPTIONS</a></li>
+<li><a href="#configuration">CONFIGURATION</a></li>
+<li><a href="#examples">EXAMPLES</a></li>
+<li><a href="#see-also">SEE ALSO</a></li>
+</ul>
+</div>
+<h1 id="name">NAME</h1>
+<p><strong>lsleases</strong> – dhcp leases sniffer</p>
+<h1 id="synopsis">SYNOPSIS</h1>
+<h2 id="client">CLIENT</h2>
+<p><strong>lsleases</strong> [-hvVcHnx]</p>
+<h2 id="server">SERVER</h2>
+<p><strong>lsleases</strong> -s [-k] [-m missed pings threshold] [-t ping interval]<br />
+<strong>lsleases</strong> -s -p [-k] [-e expire duration] [-t check expired leases interval]</p>
+<h1 id="description">DESCRIPTION</h1>
+<p><strong>lsleases</strong> watches your dhcp network traffic and gives you easy access to assigned adresses and active devices. It captures broadcast ‘DHCP Request’ datagrams and displays the ip, mac and host name from computers in the local network with dynamic ip address.</p>
+<h1 id="modes">MODES</h1>
+<p><em>client:</em></p>
+<p>in client mode, <strong>lsleases</strong> connects to a running <strong>lsleases</strong> server instance and displays captured ips, macs and host names.</p>
+<p><em>server:</em></p>
+<p>in server mode, <strong>lsleases</strong> captures broadcast ‘DHCP Request’ datagrams.</p>
+<p>Because - unlike ‘DHCP Request’ - ‘DHCP Release’ datagrams are no broadcasts, <strong>lsleases</strong> can not know about invalidated leases. To workaround this problem, there are two methods implemented:</p>
+<p>‘active mode’: use ping (icmp on windows, arping others) to check if host online (default)</p>
+<p>‘passive mode’ (-p flag) : clear old leases based on expiration time (-e flag)</p>
+<p>The expiration check interval (ping / verify expired leases) is configurable with the -t flag.</p>
+<h1 id="options">OPTIONS</h1>
+<pre><code>** Multiple Flags have to be specified individually and separated by blanks (see Examples) **</code></pre>
+<h2 id="common">common</h2>
+<dl>
+<dt>-h</dt>
+<dd>print help
+</dd>
+<dt>-v</dt>
+<dd>verbose output
+</dd>
+<dt>-V</dt>
+<dd>print version
+</dd>
+</dl>
+<h2 id="client-1">client</h2>
+<dl>
+<dt>-c</dt>
+<dd>clear leases
+</dd>
+<dt>-H</dt>
+<dd>scripted mode: no headers, dates as unix time
+</dd>
+<dt>-n</dt>
+<dd>list newest leases first
+</dd>
+<dt>-w</dt>
+<dd>watch for new leases<br />
+client polls server every second for new leases
+</dd>
+<dt>-x</dt>
+<dd>shutdown server
+</dd>
+</dl>
+<h2 id="server-1">server</h2>
+<dl>
+<dt>-s</dt>
+<dd>server mode
+</dd>
+<dt>-p</dt>
+<dd>passive mode - no active availability checking - clear leases expiration based
+</dd>
+<dt>-e</dt>
+<dd>in passive mode: lease expiration duration (valid units: ‘d’, ‘h’, ‘m’, ‘s’)
+</dd>
+<dt>-t</dt>
+<dd>interval for checking of leases validity / reachability (valid units: ‘d’, ‘h’, ‘m’, ‘s’)
+</dd>
+</dl>
+<p>in active mode: ping interval</p>
+<p>in passive mode: check expired leases interval</p>
+<dl>
+<dt>-m</dt>
+<dd>in active mode: missed pings threshold<br />
+remove lease if threshold reached
+</dd>
+<dt>-k</dt>
+<dd>keep leases over restart (save leases on shutdown and load on startup )
+</dd>
+</dl>
+<h1 id="configuration">CONFIGURATION</h1>
+<p>To configure the server, set the corresponding option flags:</p>
+<h3 id="freebsd">FreeBSD</h3>
+<p>in the file <code>/etc/rc.conf</code>:</p>
+<pre><code>`lsleases_flags=&quot;&quot;`</code></pre>
+<h3 id="linux">Linux</h3>
+<p>in the file <code>/etc/default/lsleases</code>:</p>
+<pre><code>`DAEMON_OPTS=&quot;&quot;`</code></pre>
+<h3 id="windows">Windows</h3>
+<p><strong><em>!keep in mind to let the parameter ‘-s’ untouched!</em></strong></p>
+<p><strong>standalone</strong></p>
+<pre><code>in the file `&lt;INSTALL_PATH&gt;\start-server.bat`</code></pre>
+<p><strong>installed as service</strong></p>
+<pre><code>in the Registry under: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\lsleases\Parameters\AppParameters`
+
+restart the service per `&lt;INSTALL_PATH&gt;\restart-service.bat` (per right mouse click and &quot;Run as Administrator&quot;)</code></pre>
+<h1 id="examples">EXAMPLES</h1>
+<p>Specify Flags separately (here: Server in passive mode with persistent leases)</p>
+<pre><code> j@main:~&gt; lsleases -s -k -p  (-skp or -s-k-p  DO NOT WORK)</code></pre>
+<p>list captured leases</p>
+<pre><code>j@main:~&gt; lsleases
+Ip               Mac                Name
+192.168.1.189    10:bf:48:xx:xx:xx  android-f6c6dca2130b287
+192.168.1.122    b8:27:eb:xx:xx:xx  raspberrypi
+192.168.1.178    00:22:fb:xx:xx:xx  laptop</code></pre>
+<p>start server in active mode - ping interval every 10 minutes, remove offline hosts after 5 missed pings</p>
+<pre><code>j@main:~&gt; lsleases -s -t 10m -m 5</code></pre>
+<p>start server in passive mode - expire leases after 3 days</p>
+<pre><code>j@mail:~&gt; lsleases -s -p -e 3d</code></pre>
+<h1 id="see-also">SEE ALSO</h1>
+<p>http://github.com/j-keck/lsleases</p>
+</body>
+</html>
