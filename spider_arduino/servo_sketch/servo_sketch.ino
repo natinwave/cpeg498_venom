@@ -144,7 +144,7 @@ void move_BR_forward() {
 
 //NOTE: The rest is commented out until
 //      we can get forward motion to work.
-/*
+
 //SECTION: move_left
 void move_left() {
   move_FL_left();
@@ -239,7 +239,7 @@ void move_BR_right() {
   elevate_leg("BR", "down");
   rotate_leg("BR", "CW");
 }
-*/
+
 
 
 
