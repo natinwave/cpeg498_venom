@@ -26,8 +26,13 @@ void setup() {
 
 void loop() {
 
-  test_all_legs();
-  
+  //Un-comment these two lines when you do initial servo testing
+  //test_all_legs();
+  //delay(10000);
+
+  //Everything inside the "if (Serial.available()) { ... }" block is 
+  //a check for the different inputs.
+  //To test these inputs out on a computer, use Tools->Serial Monitor
   if (Serial.available()) {
     char ch = Serial.read();
     //Here, the Arduino reads serial USB input, 
@@ -39,15 +44,15 @@ void loop() {
     }
     else if (ch == 'a') {
       Serial.println("Received 'move left' command");
-      move_left();
+      //move_left();
     }
     else if (ch == 's') {
       Serial.println("Received 'move backward' command");
-      move_backward();
+      //move_backward();
     }
     else if (ch == 'd') {
       Serial.println("Received 'move right' command");
-      move_right();
+      //move_right();
     }
   }
 }
@@ -112,8 +117,11 @@ void test_all_legs() {
 //SECTION: move_forward
 void move_forward() { //all-legs level
   move_FL_forward();
+  delay(3000);
   move_FR_forward();
+  delay(3000);
   move_BL_forward();
+  delay(3000);
   move_BR_forward();
 }
 //move_forward single-leg level
@@ -268,8 +276,8 @@ void elevate_leg(String leg_name, String up_or_down) {
   }
 
   //Step 2
-  left_pos = 13;
-  right_pos = 25;
+  int left_pos = 13;
+  int right_pos = 25;
   if (left_or_right == "left") {
     analogWrite(elbow_PWM_pin_number, left_pos);
   }
@@ -278,7 +286,7 @@ void elevate_leg(String leg_name, String up_or_down) {
   }
 
   //Step 3
-  delay(100);
+  delay(1000);
 }
 void rotate_leg(String leg_name, String CW_or_CCW) {
   //NOTE: Rotating a leg CW consists in the following steps:
@@ -332,8 +340,8 @@ void rotate_leg(String leg_name, String CW_or_CCW) {
   }
 
   //Step 2
-  left_pos = 13;
-  right_pos = 25;
+  int left_pos = 13;
+  int right_pos = 25;
   if (left_or_right == "left") {
     analogWrite(shoulder_PWM_pin_number, left_pos);
   }
@@ -342,5 +350,5 @@ void rotate_leg(String leg_name, String CW_or_CCW) {
   }
 
   //Step 3
-  delay(100);
+  delay(1000);
 }
