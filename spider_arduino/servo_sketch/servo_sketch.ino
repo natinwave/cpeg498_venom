@@ -48,7 +48,7 @@ void loop() {
     }
     else if (ch == 's') {
       Serial.println("Received 'move backward' command");
-      //move_backward();
+      move_backward();
     }
     else if (ch == 'd') {
       Serial.println("Received 'move right' command");
@@ -117,11 +117,11 @@ void test_all_legs() {
 //SECTION: move_forward
 void move_forward() { //all-legs level
   move_FL_forward();
-  delay(3000);
+  delay(500);
   move_FR_forward();
-  delay(3000);
+  delay(500);
   move_BL_forward();
-  delay(3000);
+  delay(500);
   move_BR_forward();
 }
 //move_forward single-leg level
@@ -312,17 +312,23 @@ void elevate_leg(String leg_name, String up_or_down) {
   }
 
   //Step 2
-  int left_pos = 13;
-  int right_pos = 25;
+  int left_pos = 13`  ;
+  int right_pos = 19; //was 25
   if (left_or_right == "left") {
-    analogWrite(elbow_PWM_pin_number, left_pos);
+    for (int i = right_pos; i > left_pos; i--) {
+      analogWrite(elbow_PWM_pin_number, i);
+      delay(20);
+    }
   }
   else { //left_or_right == "right"
-    analogWrite(elbow_PWM_pin_number, right_pos);
+    for (int i = left_pos; i < right_pos; i++) {
+      analogWrite(elbow_PWM_pin_number, i);
+      delay(20);
+    }
   }
 
   //Step 3
-  delay(1000);
+  delay(100);
 }
 void rotate_leg(String leg_name, String CW_or_CCW) {
   //NOTE: Rotating a leg CW consists in the following steps:
@@ -386,5 +392,5 @@ void rotate_leg(String leg_name, String CW_or_CCW) {
   }
 
   //Step 3
-  delay(1000);
+  delay(100);
 }
