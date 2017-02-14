@@ -12,6 +12,113 @@ void setup() {
   analogWriteFrequency(21, 50);
   analogWriteFrequency(22, 50);
   analogWriteFrequency(23, 50);
+
+  //Move the servos to a "standard position"
+  analogWrite(3, 25);
+  analogWrite(4, 25);
+  analogWrite(5, 13);
+  analogWrite(6, 13);
+  analogWrite(20, 13);
+  analogWrite(21, 13);
+  analogWrite(22, 25);
+  analogWrite(23, 25);
+
+  delay(3000);
+
+  analogWrite(3, 19);
+  analogWrite(4, 25);
+  analogWrite(5, 19);
+  analogWrite(6, 13);
+  analogWrite(20, 19);
+  analogWrite(21, 13);
+  analogWrite(22, 19);
+  analogWrite(23, 25);
+
+  delay(3000);
+
+  analogWrite(3, 19);
+  analogWrite(4, 19);
+  analogWrite(5, 19);
+  analogWrite(6, 19);
+  analogWrite(20, 19);
+  analogWrite(21, 19);
+  analogWrite(22, 19);
+  analogWrite(23, 19);
+
+  delay(7000);
+  int walk_ct;
+  int walk_stop = 20;
+  int delay_ms = 60;
+  unsigned long previous_time = millis();
+  unsigned long current_time = millis();
+  unsigned long time_interval = 25;
+  for (walk_ct = 0; walk_ct < walk_stop; walk_ct++) {
+//    current_time = millis();
+//    if (current_time - previous_time > time_interval) {
+//      previous_time = current_time;
+//      analogWrite(3, 25);
+//      analogWrite(4, 25);
+//      analogWrite(20, 19);
+//      analogWrite(21, 19);
+//      analogWrite(3, 19);
+//      analogWrite(4, 25);
+//    } else {
+//      analogWrite(5, 13);
+//      analogWrite(6, 19);
+//      analogWrite(22, 19);
+//      analogWrite(23, 25);
+//      analogWrite(3, 19);
+//      analogWrite(4, 25);
+//    }
+    analogWrite(3, 25);
+    analogWrite(4, 25);
+    delay(delay_ms);
+    analogWrite(5, 13);
+    analogWrite(6, 19);
+    delay(delay_ms);
+    analogWrite(20, 19);
+    analogWrite(21, 19);
+    delay(delay_ms);
+    analogWrite(22, 19);
+    analogWrite(23, 25);
+    delay(delay_ms);
+    analogWrite(3, 19);
+    analogWrite(4, 25);
+    delay(delay_ms);
+    analogWrite(5, 19);
+    analogWrite(6, 19);
+    delay(delay_ms);
+    analogWrite(20, 13);
+    analogWrite(21, 19);
+    delay(delay_ms);
+    analogWrite(22, 25);
+    analogWrite(23, 25);
+    delay(delay_ms);
+    analogWrite(3, 25);
+    analogWrite(4, 19);
+    delay(delay_ms);
+    analogWrite(5, 13);
+    analogWrite(6, 13);
+    delay(delay_ms);
+    analogWrite(20, 19);
+    analogWrite(21, 13);
+    delay(delay_ms);
+    analogWrite(22, 19);
+    analogWrite(23, 19);
+    delay(delay_ms);
+    analogWrite(3, 19);
+    analogWrite(4, 19);
+    delay(delay_ms);
+    analogWrite(5, 19);
+    analogWrite(6, 13);
+    delay(delay_ms);
+    analogWrite(20, 13);
+    analogWrite(21, 13);
+    delay(delay_ms);
+    analogWrite(22, 25);
+    analogWrite(23, 19);
+    delay(delay_ms);
+  }
   
   //Open a serial communication line with data rate = 9600 bits per second.
   //NOTE: The Raspberry Pi sends commands and the Arduino receives them.
@@ -62,40 +169,52 @@ void test_all_legs() {
   //      The test works!
   analogWrite(3, 13); //13 divided by 255 = 5% duty cycle (1ms high time) --> servo goes to left pos
   analogWrite(4, 13);
+  delay(30);
   analogWrite(5, 13);
   analogWrite(6, 13);
+  delay(30);
   analogWrite(20, 13);
   analogWrite(21, 13);
+  delay(30);
   analogWrite(22, 13);
   analogWrite(23, 13);
-  delay(100);
+  delay(30);
   analogWrite(3, 19); //19 divided by 255 = 7.5% duty cycle (1.5ms high time) --> servo goes to middle pos
   analogWrite(4, 19);
+  delay(30);
   analogWrite(5, 19);
   analogWrite(6, 19);
+  delay(30);
   analogWrite(20, 19);
   analogWrite(21, 19);
+  delay(30);
   analogWrite(22, 19);
   analogWrite(23, 19);
-  delay(100);
+  delay(30);
   analogWrite(3, 25); //25 divided by 255 = 10% duty cycle (2ms high time) --> servo goes to right pos
   analogWrite(4, 25);
+  delay(30);
   analogWrite(5, 25);
   analogWrite(6, 25);
+  delay(30);
   analogWrite(20, 25);
   analogWrite(21, 25);
+  delay(30);
   analogWrite(22, 25);
   analogWrite(23, 25);
-  delay(100);
+  delay(30);
   analogWrite(3, 19); //19 divided by 255 = 7.5% duty cycle (1.5ms high time) --> servo goes to middle pos
   analogWrite(4, 19);
+  delay(30);
   analogWrite(5, 19);
   analogWrite(6, 19);
+  delay(30);
   analogWrite(20, 19);
   analogWrite(21, 19);
+  delay(30);
   analogWrite(22, 19);
   analogWrite(23, 19);
-  delay(100);
+  delay(30);
 }
 
 //NOTE: The following are all the leg names:
@@ -312,7 +431,7 @@ void elevate_leg(String leg_name, String up_or_down) {
   }
 
   //Step 2
-  int left_pos = 13`  ;
+  int left_pos = 13;
   int right_pos = 19; //was 25
   if (left_or_right == "left") {
     for (int i = right_pos; i > left_pos; i--) {
